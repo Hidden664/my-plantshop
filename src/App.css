@@ -18,9 +18,44 @@
   background:var(--green); color:#fff; padding:2px 8px; border-radius:12px; font-size:12px;
 }
 
-.landing { position:relative; height:60vh; display:flex; align-items:center; justify-content:center; color:white; }
-.landing-bg { position:absolute; inset:0; background-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1600'); background-size:cover; filter:brightness(0.45); }
-.landing-content { position:relative; text-align:center; max-width:700px; padding:20px; }
+/* Landing / hero */
+.landing {
+  position: relative;
+  height: 60vh;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff; /* text color */
+  overflow: hidden;
+  background-color: #2b7a3a; /* fallback if image fails */
+}
+
+/* background image with lower z-index */
+.landing-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1600');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.45);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* content sits above the background */
+.landing-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  padding: 20px;
+}
+
+/* make heading and paragraph visible even if background missing */
+.landing-content h1 { margin: 8px 0; font-size: 2rem; color: #fff; }
+.landing-content p { color: rgba(255,255,255,0.95); font-size: 1.05rem; }
+
 
 .btn { padding:8px 12px; border-radius:6px; border:1px solid #ddd; background:white; cursor:pointer; margin:6px; }
 .btn.primary { background:var(--green); color:white; border:none; }
